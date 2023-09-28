@@ -4,6 +4,7 @@ import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.css.SimpleStyleableFloatProperty;
 
 public class Product {
     private final StringProperty name;

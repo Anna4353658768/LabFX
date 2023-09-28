@@ -14,6 +14,7 @@ public class Size {
         this.length = new SimpleFloatProperty(length);
         this.width = new SimpleFloatProperty(width);
         this.height = new SimpleFloatProperty(height);
+
     }
 
     public Size() {
