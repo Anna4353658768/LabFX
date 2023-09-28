@@ -1,43 +1,70 @@
 package com.example.labfx;
 
-public class Product {
-    private String name;
-    private Float weight;
-    private Size size = new Size();
+import javafx.beans.property.FloatProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-    public Product(){
+public class Product {
+    private final StringProperty name;
+    private final FloatProperty weight;
+    private final Size size;
+    private final Мanufacturer мanufacturer;
+
+    public Product(String name,Float weight,Float length,Float width,Float height,String nameM,String country,String contact,String phone){
+        this.name = new SimpleStringProperty(name);
+        this.weight = new SimpleFloatProperty(weight);
+        this.size = new Size(length,width,height);
+        this.мanufacturer = new Мanufacturer(nameM,country,contact,phone);
     }
 
-    public Product(String name,Float weight,Float length,Float width,Float height){
-        setName(name);
-        setWeight(weight);
-        setSize(length,width,height);
+    public Product(String name,Float weight,Size size,Мanufacturer мanufacturer){
+        this.name = new SimpleStringProperty(name);
+        this.weight = new SimpleFloatProperty(weight);
+        this.size = size;
+        this.мanufacturer = мanufacturer;
+    }
+
+    public Product(String name,Float weight,Float length,Float width,Float height, Мanufacturer мanufacturer){
+        this.name = new SimpleStringProperty(name);
+        this.weight = new SimpleFloatProperty(weight);
+        this.size = new Size(length,width,height);
+        this.мanufacturer = мanufacturer;
+    }
+
+    public Product(){
+        this(null,null,null,null);
     }
 
     public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name.set(name);
     }
 
-    public Float getWeight() {
+    public float getWeight() {
+        return weight.get();
+    }
+
+    public FloatProperty weightProperty() {
         return weight;
     }
 
-    public void setWeight(Float weight) {
-        this.weight = weight;
+    public void setWeight(float weight) {
+        this.weight.set(weight);
     }
 
     public Size getSize() {
         return size;
     }
 
-    public void setSize(Float length,Float width,Float height) {
-        size.setHeight(height);
-        size.setWidth(width);
-        size.setLength(length);
-
+    public Мanufacturer getМanufacturer() {
+        return мanufacturer;
     }
 }

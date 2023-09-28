@@ -1,41 +1,71 @@
 package com.example.labfx;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Мanufacturer {
 
-    private String name;
-    private String country;
-    private String contact_person;
-    private String phone;
+    private final StringProperty name;
+    private final StringProperty country;
+    private final StringProperty contact_person;
+    private final StringProperty phone;
+
+    public Мanufacturer(){
+        this(null,null,null,null);
+    }
+
+    public Мanufacturer(String name,String country,String contact_person,String phone) {
+        this.name = new SimpleStringProperty(name);
+        this.country = new SimpleStringProperty(country);
+        this.contact_person = new SimpleStringProperty(contact_person);
+        this.phone = new SimpleStringProperty(phone);
+    }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name.set(name);
     }
 
     public String getCountry() {
-        return country;
+        return country.get();
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        this.country.set(country);
     }
 
     public String getContact_person() {
-        return contact_person;
+        return contact_person.get();
     }
 
     public void setContact_person(String contact_person) {
-        this.contact_person = contact_person;
+        this.contact_person.set(contact_person);
     }
 
     public String getPhone() {
-        return phone;
+        return phone.get();
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone.set(phone);
+    }
+
+    public StringProperty countryProperty() {
+        return country;
+    }
+
+    public StringProperty contactPersonProperty() {
+        return contact_person;
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public StringProperty phoneProperty() {
+        return phone;
     }
 }
